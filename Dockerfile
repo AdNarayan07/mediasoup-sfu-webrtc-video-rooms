@@ -2,9 +2,8 @@ FROM node:12
 
 WORKDIR /app
 RUN apt-get update
-RUN npm install
-COPY package-lock.json .
 COPY package.json .
+RUN npm install
 
 COPY src src
 COPY ssl ssl
