@@ -48,11 +48,26 @@ getConfig().then((config) => {
    *  }
    * }
    */
-  let roomList = new Map()
-  
-  ;(async () => {
+  let roomList = new Map();
+  (async () => {
     await createWorkers()
   })()
+
+  mediasoup.setLogEventListeners(
+    {
+      ondebug: undefined,
+      onwarn: (namespace, log) => {
+        console.warn(`${namespace} ${log}`);
+      },
+      onerror: (namespace, log, error) => {
+        if (error) {
+          console.error(`${namespace} ${log}: ${error}`);
+        } else {
+          console.error(`${namespace} ${log}`);
+        }
+      }
+    });
+  
   
   async function createWorkers() {
     let { numWorkers } = config.mediasoup
