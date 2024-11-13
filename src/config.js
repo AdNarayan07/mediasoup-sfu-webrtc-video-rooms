@@ -74,7 +74,7 @@ const getConfig = async () => {
           {
             protocol: "udp",
             ip: '0.0.0.0',
-            announcedAddress: getLocalIp()
+            announcedAddress: "172.25.144.144"
           },
           {
             protocol: "udp",
