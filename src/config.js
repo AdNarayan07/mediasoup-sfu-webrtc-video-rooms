@@ -66,10 +66,16 @@ module.exports = {
     },
     // WebRtcTransport settings
     webRtcTransport: {
-      listenIps: [
+      listenInfos: [
         {
+          protocol: "udp",
           ip: '0.0.0.0',
-          announcedIp: getLocalIp() // replace by public IP address
+          announcedAddress: 'https://mediasoup-sfu-webrtc-video-rooms-kuv2.onrender.com'
+        },
+        {
+          protocol: "udp",
+          ip: '0.0.0.0',
+          announcedAddress: getLocalIp()
         }
       ],
       maxIncomingBitrate: 1500000,
