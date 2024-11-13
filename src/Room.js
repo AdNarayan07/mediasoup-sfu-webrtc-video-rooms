@@ -1,8 +1,8 @@
-const config = require('./config')
 module.exports = class Room {
-  constructor(room_id, worker, io) {
+  constructor(room_id, worker, io, config) {
+    this._config = config
     this.id = room_id
-    const mediaCodecs = config.mediasoup.router.mediaCodecs
+    const mediaCodecs = this._config.mediasoup.router.mediaCodecs
     worker
       .createRouter({
         mediaCodecs
@@ -38,10 +38,10 @@ module.exports = class Room {
   }
 
   async createWebRtcTransport(socket_id) {
-    const { maxIncomingBitrate, initialAvailableOutgoingBitrate } = config.mediasoup.webRtcTransport
+    const { maxIncomingBitrate, initialAvailableOutgoingBitrate } = this._config.mediasoup.webRtcTransport
 
     const transport = await this.router.createWebRtcTransport({
-      listenInfos: config.mediasoup.webRtcTransport.listenInfos,
+      listenInfos: this._config.mediasoup.webRtcTransport.listenInfos,
       enableUdp: true,
       enableTcp: true,
       preferUdp: true,
