@@ -10,7 +10,7 @@ const Room = require('./Room')
 const Peer = require('./Peer')
 
 getConfig().then((config) => {
-  console.log(config.mediasoup.webRtcTransport.listenInfos[2])
+  console.log(process.env)
 
   const options = {
     key: fs.readFileSync(path.join(__dirname, config.sslKey), 'utf-8'),
