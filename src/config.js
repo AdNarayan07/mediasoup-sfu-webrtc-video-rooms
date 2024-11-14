@@ -69,42 +69,12 @@ const getConfig = async () => {
           {
             protocol: "udp",
             ip: '0.0.0.0',
-            announcedAddress: 'https://mediasoup-sfu-webrtc-video-rooms-kuv2.onrender.com'
+            announcedAddress: process.env.RENDER_EXTERNAL_URL
           },
           {
-            protocol: "udp",
+            protocol: "tcp",
             ip: '0.0.0.0',
-            announcedAddress: "172.25.144.144"
-          },
-          {
-            protocol: "udp",
-            ip: '0.0.0.0',
-            announcedAddress: publicIp
-          },
-          {
-            protocol: "udp",
-            ip: '0.0.0.0',
-            announcedAddress: '216.24.57.4'
-          },
-          {
-            protocol: "udp",
-            ip: '0.0.0.0',
-            announcedAddress: '216.24.57.252'
-          },
-          {
-            protocol: "udp",
-            ip: '0.0.0.0',
-            announcedAddress: '13.228.225.19'
-          },
-          {
-            protocol: "udp",
-            ip: '0.0.0.0',
-            announcedAddress: '18.142.128.26'
-          },
-          {
-            protocol: "udp",
-            ip: '0.0.0.0',
-            announcedAddress: '54.254.162.138'
+            announcedAddress: process.env.RENDER_EXTERNAL_URL
           }
         ],
         maxIncomingBitrate: 1500000,
